@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+    	<link rel="stylesheet" type="text/css" href="" th:href="@{/css/index.css}">
+
+
+<title>Create New Product</title>
+</head>
+<body>
+	<div align="center">	
+		<h1>Create New Job</h1>
+		<br/>
+		<form action="#" th:action="@{/save}" th:object="${product}" method="post">
+			<table border="0" cellpadding="10">
+			
+				<tr>
+					<td>Application ID:</td>
+					<td><input type="text" th:field="*{applicationid}" /></td>
+				</tr>
+				
+				<tr>
+					<td>Job Designation:</td>
+					<td><input type="text" th:field="*{jobdesignation}" /></td>
+				</tr>
+				<tr>
+					<td>Department:</td>
+					<td><input type="text" th:field="*{department}" /></td>
+				</tr>				
+				<tr>
+					<td>Salary:</td>
+					<td><input type="text" th:field="*{salary}" /></td>
+				</tr>				
+				<tr>
+					<td>Location:</td>
+					<td><input type="text" th:field="*{location}" /></td>
+				</tr>
+								<tr>
+					<td>Notice Priod:</td>
+					<td><input type="text" th:field="*{noticepriod}" /></td>
+				</tr>
+				<tr>
+					<td>Job Type:</td>
+					<td><input type="text" th:field="*{jobtype}" /></td>
+				</tr>
+				<tr>
+					<td>Job Description:</td>
+					<td><input type="text" th:field="*{jobdescription}" /></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

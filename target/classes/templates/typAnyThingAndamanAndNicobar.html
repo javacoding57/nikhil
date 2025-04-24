@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>nikhilbharat</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="/js/bootstrap.min.css">
+	
+<script src="/js/jquery.min.js"></script>
+
+<script src="/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<h5 class="text-center">Nikhil Bharat Bangali (Udbastu) Samanway Samiti</h5> 
+		<h1>Andaman</h1>
+	
+	<a href="/joblist" class="btn btn-danger text-right">Back</a>
+		<br> <br>
+
+	</h1>
+	<br>
+	<br>
+
+
+
+
+	<div class="contact py-sm-5 py-4">
+
+		<!--   #--------------------- ->
+		<div class="container py-xl-4 py-lg-2">
+		<!-- form -->
+		<form id="form" th:action="@{/typAnyThing/saveImageDetailsAndamanAndNicobarIslands}" method="post">
+			<div class="contact-grids1 w3agile-6">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 contact-form1 form-group">
+						<label class="col-form-label">Heading(এটি অবশ্যই পূরণ করতে হবে)</label> <input type="text"
+							class="form-control" placeholder="Heading Required" id="name" name="name">
+						<p id="error_name"></p>
+					</div>
+					<div class="col-md-6 col-sm-6 contact-form1 form-group">
+						<label class="col-form-label">Description(Optional)</label> <input type="text"
+							class="form-control" placeholder="Text (optional)" id="typ" name="typ">
+						<p id="error_name"></p>
+					</div>
+					<div class="col-md-6 col-sm-6 contact-form1 form-group">
+						<label class="col-form-label">Image(Optional)</label> <input type="file"
+							class="form-control" placeholder="" name="image" id="image">
+						<p id="error_file"></p>
+					</div>
+
+
+				</div>
+
+				<div class="right-w3l col-md-6">
+					<input type="button" id="submit"
+						class="btn btn-primary form-control" value="Submit"> <br>
+					<br>
+				</div>
+				<a href="/typAnyThingAndamanAndNicobarIslandsJoblist/show" style="float: left;"
+					class="btn btn-success text-right">View</a>
+			</div>
+			<br>
+			<div id="success" class="text-center" style="color: green;"></div>
+			<div id="error" class="text-center" style="color: red;"></div>
+		</form>
+	</div>
+	</div>
+	<p class="text-center">
+		<img src="/images/loader.gif" alt="loader"
+			style="width: 150px; height: 120px;" id="loader">
+	</p>
+	<script>
+
+	
+	   $(document).ready(function() {
+		    $('#loader').hide();
+		    $("#submit").on("click", function() {
+		    	$("#submit").prop("disabled", true);
+		    	var name = $("#name").val();
+		        var file = $("#image").val(); 
+		        var text = $("#text").val();
+		        var form = $("#form").serialize();
+		    	var data = new FormData($("#form")[0]);
+		    	data.append('name', name);
+		    	data.append('text', text);
+		    	data.append('image',image);
+		    	data.append('file',file);
+		    	//alert(data);
+		        $('#loader').show();
+		        if (name === "") {
+		        	$("#submit").prop("disabled", false);
+		            $('#loader').hide();
+		            $("#name").css("border-color", "red");
+		            $("#text").css("border-color", "red");
+		            $("#image").css("border-color", "red");
+		            $("#error_name").html("Please fill the required field.");
+		            $("#error_file").html("Please fill the required field.");
+		            $("#error_city").html("Please fill the required field.");
+		        } else {
+		            $("#name").css("border-color", "");
+		            $("#image").css("border-color", "");
+		            $("#text").css("border-color", "");
+		            $('#error_name').css('opacity', 0);
+		            $('#error_file').css('opacity', 0);
+		            $('#error_city').css('opacity', 0);
+		                    $.ajax({
+		                        type: 'POST',
+		                        enctype: 'multipart/form-data',
+		                        data: data,
+		                        url: "/typAnyThing/saveImageDetailsAndamanAndNicobarIslands", 
+		                        processData: false,
+		                        contentType: false,
+		                        cache: false,
+		                        success: function(data, statusText, xhr) {
+		                        console.log(xhr.status);
+		                        if(xhr.status == "200") {
+		                        	$('#loader').hide(); 
+		                        	$("#form")[0].reset();
+		                        	$('#success').css('display','block');
+		                            $("#error").text("");
+		                            $("#success").html("Inserted Succsessfully.");
+		                            $('#success').delay(2000).fadeOut('slow');
+		                         }	   
+		                        },
+		                        error: function(e) {
+		                        	$('#loader').hide();
+		                        	$('#error').css('display','block');
+		                            $("#error").html("Oops! something went wrong.");
+		                            $('#error').delay(5000).fadeOut('slow');
+		                            location.reload();
+		                        }
+		                    });
+		        }
+		            });
+		        });
+
+
+	
+	</script>
+
+
+
+
+
+</body>
+</html>

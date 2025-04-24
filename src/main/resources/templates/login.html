@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<meta charset="ISO-8859-1">
+    <!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="" th:href="@{/css/login.css}">
+<title>nikhilbharat</title>
+
+ 
+</head>
+
+<body>
+
+<div>
+
+<h1>Admin Portal</h1><br>
+
+     	<a th:href="@{/}"><h1>Home</h1></a><br>
+<h2>Have a account?<h2>
+<a  href="registration">Sign Up</a>
+
+</div>
+
+	<form action="" th:action="@{/login}" method="post">
+
+		<label class="login"><h1>User Name</h1></label>
+		<input class="login" type="text" id="email" name="email" placeholder="USER NAME"/>
+		<br>
+		<br>
+		<label class="login"><h1>Password</h1></label>
+		<input class="login" type="password" id="password" name="password" placeholder="PASSWORD"/>
+		<br>
+		<br>
+		<button class="login" type="submit"><h1>login</h1></button>
+				
+	</form>
+
+	<br>
+	<div>
+	<span>New User?<a href="/" th:href="@{/registration}">Register here</a></span>
+</div>
+<br>
+
+<!-- 
+<button><p>MAKE MY Class Greate</p></button>
+ -->
+
+<div id="sf">
+
+
+
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+    <!-- Bootstrap CSS -->
+    	<link rel="stylesheet" type="text/css" href="" th:href="@{/css/registration.css}">
+
+  
+  
+<title>nikhilbharat</title> 
+
+
+
+</head>
+<header>
+<div align="center" id="a">
+
+<h1>Admin Portal</h1>
+
+
+</div>
+    <div align="center" calss= "jay">
+        <a th:href="@{/}">HOME</a>
+    </div>
+
+<div align="center" id="b">
+<h2>Already have a account?<h2>
+<div align="center" id="c">
+<a href="login">Sign In</a>
+
+</div>
+
+</div>
+
+</header>
+
+<body>
+
+</div>
+
+<footer id="con2">
+<div align="center" id="vv">
+	<br>
+	<br>
+		<form action="" th:action="@{/registration}" method="post">
+			<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+		<label><h1>First Name</h1></label>
+		<input type="text" id="firstname" name="firstname" placeholder="FIRST NAME"/>
+		
+		<br>
+		<br>
+		
+		<label><h1>Last Name</h1></label>
+		<input type="text" id="lastname" name="lastname" placeholder="LAST NAME"/>
+
+		<br>
+		<br>
+	
+		<label><h1>EMAIL</h1></label>
+		<input type="text" id="email" unique=true message="Opps!!! This mail already have a account" name="email" placeholder="EMAIL"/>
+		
+		<br>
+		<br>
+		<label><h1>MOBILE</h1></label>
+		<input type="text" id="mobile" name="mobile" placeholder="MOBILE">
+		
+		<br>
+		<br>
+		<label><h1>Password</h1></label>
+		<input type="password" id="password" name="password" placeholder="PASSWORD"/>
+		
+		<br>
+		<br>
+		<button type="submit"><h1>Register</h1></button>
+				
+	</form>
+	</div>
+	<br>
+	<div align="center">
+	<span>Already a User?<a href="/" th:href="@{/login}">Login</a></span>
+</div>
+<br>
+
+
+<!-- 
+<button><p>MAKE MY Class Greate</p></button
+ -->
+
+<div id="sf">
+
+
+</div>
+</footer>
+</body>
+</html>

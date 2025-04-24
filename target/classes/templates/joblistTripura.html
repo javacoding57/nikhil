@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>nikhilbharat</title> 
+
+
+	
+</head>
+<body>
+<div align="center">	
+		
+	<h1>Admin portal</h1>
+	
+	    <div class="logout">     	
+    <a class="logout" th:href="@{/logout}">logout</a>
+    </div>	
+	
+	<h5 class="text-center">Nikhil Bharat Bangali (Udbastu) Samanway Samiti</h5>
+		<h1>Tripura</h1>
+	
+		 <a href="/" class="btn btn-danger text-right">Back</a>
+		 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 
+		 <a href="/typAnyThingTripura" class="btn btn-danger text-right">New Post</a>
+		 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 
+	
+	
+	<style>
+	
+	
+.dropdown {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 60px;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 1px 1px;
+  text-decoration: none;
+  display: block;
+      font-size: 100px;
+  
+  
+}
+
+.dropdown-content a:hover {background-color: #ddd;
+    font-size: 100px;
+
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+	
+	</style>	 
+<div class="dropdown">
+  <button class="dropbtn">All-State</button>
+  <div class="dropdown-content">
+					<a th:href="@{/joblistBihar}">Bh</a> 
+			<a th:href="@{/joblistDelhi}">Del</a> 
+			<a th:href="@{/joblistGujrat}">Guj</a> 
+			
+			<a th:href="@{/joblistWestBengal}">WB</a>
+			<a th:href="@{/joblistChhattisgarh}">CG</a> 
+			<a th:href="@{/joblistOdisa}">Od</a> 
+						
+						
+			<a th:href="@{/joblistAndamanAndNicobarIslands}">An</a> 
+			<a th:href="@{/joblistTe}">Te</a> 
+			<a th:href="@{/joblistAandN}">A&n</a> 
+						
+						
+			<a th:href="@{/joblistMaharashtra}">Mh</a> 
+			<a th:href="@{/joblistKarnataka}">Ka</a> 
+			<a th:href="@{/joblistAssam}">Asm</a> 
+						
+			<a th:href="@{/joblistTripura}">Tri</a> 
+			<a th:href="@{/joblistJharkhand}">Jh</a> 
+			<a th:href="@{/joblistMadhyaPradesh}">Mp</a> 
+						
+			<a th:href="@{/joblistUttarPradesh}">Up</a> 
+			<a th:href="@{/joblistUttarKhand}">Uk</a> 
+
+						 
+			
+  </div>
+</div>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+
+<script type="text/javascript">
+	function clearSearch() {
+		window.location = "[[@{/joblist}]]";
+	}
+</script>
+		<div class="ima" style="color:red;">
+					<tr th:each="imageGalleryAandN, hh : ${images}"><br>
+
+						<td class="pic" th:text="${imageGalleryAandN.name}"></td><br>
+						
+						
+						<td class="pic">
+						<img
+							th:src="@{${'/typAnyThingTripura/display/'+ imageGalleryAandN.id}}"
+							class="card img-fluid"  alt="" /></td>
+						<br>
+						<td class="pic" th:text="${imageGalleryAandN.typ}"></td><br>
+						<td th:text="${#dates.format({imageGalleryAandN.createDate}, 'dd-MM-yyyy')}" /></td>
+						
+										<td>
+										
+										<!-- 
+										
+					<a th:href="@{'/edit/' + ${imageGallery.id}}">Edit</a>
+										
+						 -->				
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/deleteTripura/' + ${imageGalleryAandN.id}}">Delete</a>
+					<br><br>
+
+				</td>
+		</div>
+
+
+
+
+</body>
+</html>

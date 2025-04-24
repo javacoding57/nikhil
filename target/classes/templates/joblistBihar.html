@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>nikhilbharat</title> 
+
+
+
+
+<link rel="stylesheet" href="/js/bootstrap.min.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+	
+	
+<style>
+	
+	
+.dropdown {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 60px;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 1px 1px;
+  text-decoration: none;
+  display: block;
+      font-size: 100px;
+  
+  
+}
+
+.dropdown-content a:hover {background-color: #ddd;
+    font-size: 100px;
+
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+	
+
+.dropbtn{
+
+height:72;
+width:200px;
+border:10px red;
+background-color: yellow;
+font-size: 42px;
+
+}
+
+.box > * {
+  border: 2px solid rgb(96 139 168);
+  border-radius: 5px;
+  background-color: rgb(96 139 168 / 0.2);
+  padding: 10px;
+  display: flex;
+/* flex-direction: row-reverse; */
+   flex-direction: column-reverse;
+}
+
+.box > * a:focus {
+  background-color: yellow;
+  color: black;
+  
+/*  display: flex;
+ flex-direction: row-reverse; 
+   flex-direction: column-reverse; */
+}
+
+.box {
+  border: 2px dotted rgb(96 139 168);
+/*  display: flex;
+ flex-direction: row-reverse; 
+   flex-direction: column-reverse;
+   
+   */
+ 
+}
+
+
+a{
+
+height:200px;
+width:200px;
+border:10px red;
+background-color: yellow;
+font-size: 50px;
+}
+
+.clearbtn{
+
+height:72;
+width:135px;
+border:10px red;
+background-color: yellow;
+font-size: 50px;
+}
+
+
+.deletebtn{
+
+height:32px;
+width:80px;
+background-color: yellow;
+font-size: 25px;
+color: red;
+
+  border: 2px solid rgb(96 139 168);
+
+
+}
+	
+</style>	 
+	
+</head>
+<body>
+<div align="center">	
+		
+	<h1>Admin portal</h1>
+	
+	    <div class="logout">     	
+    <a class="logout" th:href="@{/logout}">logout</a>
+    </div>	
+	
+	<h5 class="text-center">Nikhil Bharat Bangali (Udbastu) Samanway Samiti</h5>
+	<h1>Bihar</h1>
+		 <a href="/">Back</a>
+		 
+		 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 
+		 <a href="/typAnyThingBihar">New Post</a>
+	
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+<div class="dropdown">
+  <button class="dropbtn">All-State</button>
+  <div class="dropdown-content">
+					<a th:href="@{/joblistBihar}">Bh</a> 
+			<a th:href="@{/joblistDelhi}">Del</a> 
+			<a th:href="@{/joblistGujrat}">Guj</a> 
+			
+			<a th:href="@{/joblistWestBengal}">WB</a>
+			<a th:href="@{/joblistChhattisgarh}">CG</a> 
+			<a th:href="@{/joblistOdisa}">Od</a> 
+						
+						
+			<a th:href="@{/joblistAndamanAndNicobarIslands}">An</a> 
+			<a th:href="@{/joblistTe}">Te</a> 
+			<a th:href="@{/joblistAandN}">A&n</a> 
+						
+						
+			<a th:href="@{/joblistMaharashtra}">Mh</a> 
+			<a th:href="@{/joblistKarnataka}">Ka</a> 
+			<a th:href="@{/joblistAssam}">Asm</a> 
+						
+			<a th:href="@{/joblistTripura}">Tri</a> 
+			<a th:href="@{/joblistJharkhand}">Jh</a> 
+			<a th:href="@{/joblistMadhyaPradesh}">Mp</a> 
+						
+			<a th:href="@{/joblistUttarPradesh}">Up</a> 
+			<a th:href="@{/joblistUttarKhand}">Uk</a> 
+
+						 
+			
+  </div>
+</div>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		<input class="clearbtn" type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+
+<script type="text/javascript">
+	function clearSearch() {
+		window.location = "[[@{/joblistBihar}]]";
+	}
+</script>
+
+
+<div class="box">
+
+		<div class="ima" style="color:red;">
+					<tr th:each="imageGalleryBihar, hh : ${images}"><br>
+
+
+						<td class="pic" th:text="${imageGalleryBihar.typ}"></td><br>
+
+
+						
+						
+						<td class="pic">
+						<img
+							th:src="@{${'/typAnyThing/displayBihar/'+ imageGalleryBihar.id}}"
+							class="card img-fluid"  alt="" /></td>
+							
+													<td class="pic" th:text="${imageGalleryBihar.name}"></td><br>
+							
+						<br>
+						<td th:text="${#dates.format({imageGalleryBihar.createDate}, 'dd-MM-yyyy')}" /></td>
+						
+										<td>
+										
+										<!-- 
+										
+					<a th:href="@{'/edit/' + ${imageGallery.id}}">Edit</a>
+										
+						 -->				
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a class="deletebtn" th:href="@{'/deleteBihar/' + ${imageGalleryBihar.id}}">Delete</a>
+					<br><br>
+
+				</td>
+		</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+
+<meta charset="ISO-8859-1">
+    <!-- Bootstrap CSS -->
+    	<link rel="stylesheet" type="text/css" href="" th:href="@{/css/index.css}">
+  
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=661f83ed696c5b0019fbab09&product=inline-share-buttons&source=platform" async="async"></script>
+  
+  
+<title>nikhilbharat</title> 
+
+  
+
+
+</head>
+<header>
+<div id="a">
+
+<h1 align="center">Admin Portal</h1>
+
+</div>
+
+<div id="b">
+<h2 align="center">Have a account?<h2>
+<div align="center" id="c">
+<a th:href="@{/login}" >login</a>
+</div>
+
+</div>
+
+</header>
+
+<body>
+
+
+<h5 class="text-center">Nikhil Bharat Bangali (Udbastu) Samanway Samiti</h5>
+		 <a href="/" class="btn btn-danger text-right">Back</a>
+		 <a href="/typAnyThing2" class="btn btn-danger text-right">New Post</a>
+
+
+		<div class="ima" style="color:red;">
+					<tr th:each="imageGallery, hh : ${images}"><br>
+
+						<td class="pic" th:text="${imageGallery.name}"></td><br>
+						
+						
+						
+												<!--  td class="pic">
+						<img
+							th:src="@{${'/typAnyThing/display/'+ imageGallery.id}}"
+							class="card img-fluid" style="width: 399px; height:185px;" alt="" /></td -->
+						
+						<td class="pic">
+						<img
+							th:src="@{${'/typAnyThing/display/'+ imageGallery.id}}"
+							class="card img-fluid"  alt="" /></td>
+						<br>
+						<td class="pic" th:text="${imageGallery.typ}"></td><br>
+						<td th:text="${#dates.format({imageGallery.createDate}, 'dd-MM-yyyy')}" /></td>
+						
+
+				</td>
+		</div>
+
+
+
+
+
+</body>
+</html>
